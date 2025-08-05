@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>خطأ في الإيداع</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      direction: rtl;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+    .card {
+      width: 320px;
+      background-color: #fff;
+      border-radius: 0;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      text-align: center;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #aaa;
+      text-decoration: none;
+      z-index: 1;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      color: #333;
+    }
+    .card-top {
+      padding: 30px 15px 15px;
+      background-color: #fff;
+    }
+    .card-top img {
+      height: 50px;
+      border-radius: 0;
+    }
+    .card-bottom {
+      background-color: #f2f2f2;
+      padding: 20px 20px 30px;
+      font-size: 15px;
+      color: #222;
+      line-height: 1.8;
+    }
+    .telegram-btn {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #0088cc;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      transition: background-color 0.3s ease;
+    }
+    .telegram-btn:hover {
+      background-color: #0077b3;
+    }
+    .telegram-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+  </style>
+  <script>
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", e => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U")
+      ) e.preventDefault();
+    });
+  </script>
+</head>
+<body>
+  <div class="card">
+    <a href="dashboard.html" class="close-btn" title="إغلاق">×</a>
+    <div class="card-top">
+      <img src="https://i.postimg.cc/B6s809KC/recharge.png" alt="Recharge Image" />
+    </div>
+    <div class="card-bottom">
+      حدث خطأ أثناء إنشاء طلب الإيداع.<br>
+      يُرجى التواصل معنا عبر تيليغرام:
+      <br>
+      <a href="https://t.me/mobcashrecharge" target="_blank" class="telegram-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><path d="M120,0C53.7,0,0,53.7,0,120c0,66.3,53.7,120,120,120s120-53.7,120-120C240,53.7,186.3,0,120,0z M174.1,80.1l-22,103.9 c-1.7,7.7-6.3,9.6-12.7,6l-35.2-26.1l-17,16.4c-1.9,1.9-3.5,3.5-7.2,3.5l2.6-36.3l66.1-59.8c2.9-2.6-0.6-4-4.5-1.5L80.3,135.6 l-34.9-10.9c-7.6-2.4-7.8-7.6,1.6-11.2L167,70.1C172.9,68,177.6,71.3,174.1,80.1z"/></svg>
+        تواصل عبر تيليغرام
+      </a>
+    </div>
+  </div>
+</body>
+</html>
