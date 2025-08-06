@@ -80,9 +80,6 @@
           <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex items-center justify-between" data-value="Melbet">
             <span>Melbet</span> <img src="https://i.postimg.cc/0jZWvTm7/recharge.jpg" class="w-6 h-6 rounded-full" />
           </li>
-          <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex items-center justify-between" data-value="riskobet">
-            <span>riskobet</span> <img src="https://i.postimg.cc/sXjs74gV/8de62e0d-faf0-4657-aa87-962278a7542e.jpg" class="w-6 h-6 rounded-full" />
-          </li>
         </ul>
         <input type="hidden" id="platform" name="platform" />
       </div>
@@ -104,6 +101,7 @@
 
 <script>
   lucide.createIcons();
+
   const isRepeatedDigits = id => /^(\d)\1{6,12}$/.test(id);
 
   function showMessage(text, type = "error") {
@@ -211,7 +209,7 @@
       platformInput.value = value;
       dropdownList.classList.add("hidden");
       const img = item.querySelector("img").getAttribute("src");
-      selectedText.innerHTML = <span>${value}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />;
+      selectedText.innerHTML = `<span>${value}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />`;
     });
   });
 
@@ -230,7 +228,7 @@
       if (item) {
         platformInput.value = storedPlatform;
         const img = item.querySelector("img").getAttribute("src");
-        selectedText.innerHTML = <span>${storedPlatform}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />;
+        selectedText.innerHTML = `<span>${storedPlatform}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />`;
       } else {
         platformInput.value = "";
         selectedText.textContent = "اختر المنصة";
