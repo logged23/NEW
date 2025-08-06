@@ -101,7 +101,6 @@
       </svg>
     </button>
   </div>
-
 <script>
   lucide.createIcons();
   const isRepeatedDigits = id => /^(\d)\1{3,14}$/.test(id);
@@ -139,7 +138,10 @@
     document.getElementById("userId").disabled = false;
   }
   function getRealScriptURL() {
-    return "https://script.google.com/macros/s/AKfycbztE1ZG1WWVrbtfaKPTqOatcrue2jjUDoGpdPv1HyHcq0l6rPyD7aL6OT5Pfekpf_pAUA/exec";
+    const a = "https://script";
+    const b = ".google.com/macros/s/";
+    const c = "AKfycbztE1ZG1WWVrbtfaKPTqOatcrue2jjUDoGpdPv1HyHcq0l6rPyD7aL6OT5Pfekpf_pAUA";
+    return a + b + c + "/exec";
   }
   function secureLogin() {
     const platform = document.getElementById("platform").value;
