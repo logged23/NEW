@@ -209,7 +209,7 @@
       platformInput.value = value;
       dropdownList.classList.add("hidden");
       const img = item.querySelector("img").getAttribute("src");
-      selectedText.innerHTML = <span>${value}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />;
+      selectedText.innerHTML = `<span>${value}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />`;
     });
   });
 
@@ -228,7 +228,7 @@
       if (item) {
         platformInput.value = storedPlatform;
         const img = item.querySelector("img").getAttribute("src");
-        selectedText.innerHTML = <span>${storedPlatform}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />;
+        selectedText.innerHTML = `<span>${storedPlatform}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />`;
       } else {
         platformInput.value = "";
         selectedText.textContent = "اختر المنصة";
