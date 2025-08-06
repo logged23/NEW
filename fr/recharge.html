@@ -80,13 +80,16 @@
           <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex items-center justify-between" data-value="Melbet">
             <span>Melbet</span> <img src="https://i.postimg.cc/0jZWvTm7/recharge.jpg" class="w-6 h-6 rounded-full" />
           </li>
+          <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex items-center justify-between" data-value="riskobet">
+            <span>riskobet</span> <img src="https://i.postimg.cc/sXjs74gV/8de62e0d-faf0-4657-aa87-962278a7542e.jpg" class="w-6 h-6 rounded-full" />
+          </li>
         </ul>
         <input type="hidden" id="platform" name="platform" />
       </div>
     </div>
     <div class="mb-4">
       <label for="userId" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">أدخل الـ ID</label>
-      <input type="text" id="userId" maxlength="13" inputmode="numeric" pattern="[0-9]*" placeholder="مثال: 1234567..." class="w-full px-4 py-2 border rounded-xl text-sm bg-white text-gray-800 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="filterDigits(this); validateId()" onkeydown="return isNumberKey(event)" />
+      <input type="text" id="userId" maxlength="15" inputmode="numeric" pattern="[0-9]*" placeholder="مثال: 123456..." class="w-full px-4 py-2 border rounded-xl text-sm bg-white text-gray-800 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="filterDigits(this); validateId()" onkeydown="return isNumberKey(event)" />
     </div>
     <div id="message" class="fade text-center text-sm mb-4 h-5"></div>
     <button id="submitBtn" onclick="secureLogin()" class="relative w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-xl transition duration-300 flex items-center justify-center gap-2">
@@ -101,25 +104,20 @@
 
 <script>
   lucide.createIcons();
-
-  const isRepeatedDigits = id => /^(\d)\1{6,12}$/.test(id);
-
+  const isRepeatedDigits = id => /^(\d)\1{3,14}$/.test(id);
   function showMessage(text, type = "error") {
     const msg = document.getElementById("message");
     msg.className = "fade show text-center text-sm mb-4 h-5";
     msg.textContent = text;
     msg.style.color = type === "success" ? "green" : "red";
   }
-
   function filterDigits(input) {
     input.value = input.value.replace(/[^\d]/g, '');
   }
-
   function isNumberKey(e) {
     const key = e.key;
     return /^[0-9]$/.test(key) || ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(key);
   }
-
   function validateId() {
     const userId = document.getElementById("userId").value;
     if (isRepeatedDigits(userId)) {
@@ -129,7 +127,6 @@
     document.getElementById("message").className = "fade";
     document.getElementById("message").textContent = "";
   }
-
   function resetForm() {
     const btn = document.getElementById("submitBtn");
     const loader = document.getElementById("loader");
@@ -141,14 +138,9 @@
     document.getElementById("platform").disabled = false;
     document.getElementById("userId").disabled = false;
   }
-
   function getRealScriptURL() {
-    const a = "https://script";
-    const b = ".google.com/macros/s/";
-    const c = "AKfycbztE1ZG1WWVrbtfaKPTqOatcrue2jjUDoGpdPv1HyHcq0l6rPyD7aL6OT5Pfekpf_pAUA";
-    return a + b + c + "/exec";
+    return "https://script.google.com/macros/s/AKfycbztE1ZG1WWVrbtfaKPTqOatcrue2jjUDoGpdPv1HyHcq0l6rPyD7aL6OT5Pfekpf_pAUA/exec";
   }
-
   function secureLogin() {
     const platform = document.getElementById("platform").value;
     const userId = document.getElementById("userId").value.trim();
@@ -158,7 +150,7 @@
 
     if (!platform) return showMessage("اختر المنصة.");
     if (!userId) return showMessage("أدخل المعرّف.");
-    if (userId.length < 7 || userId.length > 13 || !/^\d+$/.test(userId) || isRepeatedDigits(userId)) {
+    if (userId.length < 4 || userId.length > 15 || !/^\d+$/.test(userId) || isRepeatedDigits(userId)) {
       return showMessage("المعرف غير معتمد. الرجاء التحقق.");
     }
 
@@ -209,7 +201,7 @@
       platformInput.value = value;
       dropdownList.classList.add("hidden");
       const img = item.querySelector("img").getAttribute("src");
-      selectedText.innerHTML = `<span>${value}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />`;
+      selectedText.innerHTML = <span>${value}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />;
     });
   });
 
@@ -228,7 +220,7 @@
       if (item) {
         platformInput.value = storedPlatform;
         const img = item.querySelector("img").getAttribute("src");
-        selectedText.innerHTML = `<span>${storedPlatform}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />`;
+        selectedText.innerHTML = <span>${storedPlatform}</span><img src="${img}" class="w-6 h-6 rounded-full ml-2" />;
       } else {
         platformInput.value = "";
         selectedText.textContent = "اختر المنصة";
